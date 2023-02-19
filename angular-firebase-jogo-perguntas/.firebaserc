@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angularfirebasejogoperguntas"
+  },
+  "targets": {
+    "angularfirebasejogoperguntas": {
+      "hosting": {
+        "angular-firebase-jogo-perguntas": [
+          "angularfirebasejogoperguntas"
+        ]
+      }
+    }
+  }
+}
