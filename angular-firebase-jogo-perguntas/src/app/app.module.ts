@@ -6,20 +6,24 @@ import { AppComponent } from './app.component';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
 import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { CardPokemonComponent } from './components/pokemons/card-pokemon/card-pokemon.component';
 import { MenuComponent } from './components/menu/menu.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonsComponent,
     CardPokemonComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +31,8 @@ import { MenuComponent } from './components/menu/menu.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

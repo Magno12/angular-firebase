@@ -1,7 +1,25 @@
+<div class="card__conteiner">
 
-  
-  <button mat-button>
-    <mat-icon>add</mat-icon> Add Task
-  </button>
-  
+  <mat-card>
+    <mat-card-title>{{name | uppercase}}</mat-card-title>
+
+    <img mat-card-image src={{front_default}} alt="Photo of a Shiba Inu">
+
+    <mat-card-actions>
+      <button mat-button (click)="respostaSelecionada(op.name)" *ngFor="let op of opcoesDeEscolha" >
+
+        <mat-icon>local_fire_department</mat-icon> {{op.name | uppercase}}
+
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
+
+
+<button mat-button>
+  <mat-icon>add</mat-icon> Add Task
+</button>
+
 <p>card-pokemon works!</p>

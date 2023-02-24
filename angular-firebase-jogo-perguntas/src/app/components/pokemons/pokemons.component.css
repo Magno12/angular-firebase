@@ -1,0 +1,8 @@
+.card__pokemons {
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+
+    margin-top: 20px;
+
+}
