@@ -70,34 +70,71 @@ export class PokemonsComponent {
           console.log('erro', err);
         },
         complete: () => {
+          this.opcoesDinamica();
+
           this.inserindoNomeCoreto(this.pokemon.name);
+
         }
       }
     );
 
-    this.listSelecao = [];//limpando opcoes
 
-    this.opcoesDinamica();
   }
 
   opcoesDinamica() {
 
-    for (let i = 0; i < 4; i++) {
-      console.log(i)
-      let posicaoSelect = this.getRandomInt(0, this.listOpcoes.length);
+    this.listSelecao = [];//limpando opcoes
+    let nomeAleatorio = '';
 
-      this.listSelecao.push(this.listOpcoes[posicaoSelect]);
+    for (let i = 0; i < 4; i++) {
+
+
+      let posicaoSelect = this.getRandomInt(0, this.listOpcoes.length - 1);
+      nomeAleatorio = this.listOpcoes[posicaoSelect].name;
+
+      console.log('nome aleatorio', nomeAleatorio);
+
+      if (this.listSelecao.length == 0) {
+        this.listSelecao.push(this.listOpcoes[posicaoSelect]);
+      }
+      else if (this.verificarNome(posicaoSelect)) {
+        this.listSelecao.push(this.listOpcoes[posicaoSelect]);
+      }
+      else if (this.listSelecao.length == 1 && i == 3) {
+        i = i - 1;
+      }
 
     }
+
+  }
+
+  verificarNome(posicao?: number, nome?: string): boolean {
+
+    for (const key in this.listSelecao) {
+      if (posicao != undefined)
+        if (this.listSelecao[key] === this.listOpcoes[posicao])
+          return false;
+
+      if (nome != null && nome != "")
+        if (this.listSelecao[key] == nome)
+          return false;
+
+    }
+
+    return true;
+
   }
 
   inserindoNomeCoreto(nome: string) {
-    let posicaoResposta = this.getRandomInt(0, this.listSelecao.length);
-    this.listSelecao.length == 4 ? this.listSelecao[posicaoResposta].name = nome : console.log('ERRO AO INSERIR NOME CORRETONA LISTA DE OPÇOES DE ESCOLHA');
+    let posicaoAleatoria = this.getRandomInt(0, this.listSelecao.length - 1);
+    if (this.verificarNome(undefined, nome)) {
+      this.listSelecao[posicaoAleatoria].name = nome;
+    }
   }
 
   respostaEscolha(value: any) {
     console.log("repostaEscolha", value);
+    //pegar resposta escolhinha e verificar se esta coreta
     this.buscarPokemon();
   }
 
