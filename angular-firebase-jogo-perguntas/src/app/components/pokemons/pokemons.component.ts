@@ -10,8 +10,8 @@ import { ApiPokemonService } from './../../services/api-pokemon.service'
 export class PokemonsComponent {
 
   pokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '' } }
-  listPokemon: Pokemon[] = [];
-
+  listPokemon: any[] = [];
+  resulPokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '' } }
   //  listSelecao: string[] = ['squart', 'criptonita', 'pikachu'];
 
   listOpcoes = [
@@ -46,6 +46,11 @@ export class PokemonsComponent {
 
   listSelecao: any[] = [];
 
+  mostrarResult: boolean = false;
+  resulBoll: boolean = false;
+  cont = 0;
+  resl = true;
+
   constructor(private servicePokemon: ApiPokemonService) {
 
     this.buscarPokemon();
@@ -64,7 +69,12 @@ export class PokemonsComponent {
     this.servicePokemon.getOnePokemon(this.getRandomInt(1, 1010)).subscribe(
       {
         next: (res) => {
-          this.pokemon = res;
+          this.pokemon = {
+            id: res.id,
+            name: res.name,
+            sprites: res.sprites
+          }
+
         },
         error: (err) => {
           console.log('erro', err);
@@ -77,8 +87,6 @@ export class PokemonsComponent {
         }
       }
     );
-
-
   }
 
   opcoesDinamica() {
@@ -88,11 +96,8 @@ export class PokemonsComponent {
 
     for (let i = 0; i < 4; i++) {
 
-
       let posicaoSelect = this.getRandomInt(0, this.listOpcoes.length - 1);
       nomeAleatorio = this.listOpcoes[posicaoSelect].name;
-
-      console.log('nome aleatorio', nomeAleatorio);
 
       if (this.listSelecao.length == 0) {
         this.listSelecao.push(this.listOpcoes[posicaoSelect]);
@@ -105,7 +110,6 @@ export class PokemonsComponent {
       }
 
     }
-
   }
 
   verificarNome(posicao?: number, nome?: string): boolean {
@@ -126,16 +130,52 @@ export class PokemonsComponent {
   }
 
   inserindoNomeCoreto(nome: string) {
-    let posicaoAleatoria = this.getRandomInt(0, this.listSelecao.length - 1);
+    const posicaoAleatoria = this.getRandomInt(0, this.listSelecao.length - 1);
+
     if (this.verificarNome(undefined, nome)) {
       this.listSelecao[posicaoAleatoria].name = nome;
     }
   }
 
   respostaEscolha(value: any) {
-    console.log("repostaEscolha", value);
+    this.mostrarResult = true;
+    //console.log("repostaEscolha", value);
     //pegar resposta escolhinha e verificar se esta coreta
+    this.pokemon.resul = this.resultResposta(value);
+
+    this.resulPokemon = this.pokemon;
+
+    //console.log('pokemon', this.pokemon)
+
+    this.listPokemon.push(this.pokemon);
+
+    this.cont = this.cont + 1;
+
+
+    this.resl = !this.resl;
+    this.exibirResultadoTemporario();
     this.buscarPokemon();
+
+  }
+
+  resultResposta(value: string): boolean {
+
+    if (value == this.pokemon.name)
+      return true;
+
+    if (value != this.pokemon.name)
+      return false;
+
+    return false;
+  }
+
+  exibirResultadoTemporario(boo?: any) {
+    /* this.resl = !boo; */
+    setTimeout(() => {
+      this.resl = !this.resl;
+    }, 1000)
+
+   // console.log('teste bool', this.resl)
   }
 
 }

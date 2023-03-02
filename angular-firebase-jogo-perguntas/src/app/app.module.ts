@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { CardPokemonComponent } from './components/pokemons/card-pokemon/card-pokemon.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { MenuComponent } from './components/menu/menu.component';
     PokemonsComponent,
     CardPokemonComponent,
     MenuComponent,
+    ButtonsComponent,
   ],
   imports: [
     BrowserModule,

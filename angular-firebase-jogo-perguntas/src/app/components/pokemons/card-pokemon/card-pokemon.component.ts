@@ -1,4 +1,3 @@
-import { Pokemon } from './../../../model/pokemon';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -8,6 +7,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CardPokemonComponent {
 
+  @Input()
+  __mostrarResult: boolean = false;
 
   @Input()
   id: number = 0;
@@ -22,18 +23,26 @@ export class CardPokemonComponent {
   resul: boolean = false;
 
 
-  @Input()
-  opcoesDeEscolha: any = {};
-
   @Output() eventEmitterRespostaEscolhida = new EventEmitter<string>;
 
-  constructor() {
-   
+  @Output() eventeEmitterTeste = new EventEmitter<boolean>
+
+
+  constructor()  {
+    
+  }
+  
+  respostaSelecionada(nomeEscolhido: string) {
+
+    console.log('respiodfdfdfdfkjlkj')
+    this.__mostrarResult = true;
+    this.eventEmitterRespostaEscolhida.emit(nomeEscolhido);
+
   }
 
-  respostaSelecionada(nomeEscolhido: string) {
-    console.log('nomeEscolhido i', nomeEscolhido);
-    this.eventEmitterRespostaEscolhida.emit(nomeEscolhido + ' ' + this.name);
+  teste() {
+    this.eventeEmitterTeste.emit(true)
+    console.log('teste() visualizar lista pokemons')
   }
 
 }

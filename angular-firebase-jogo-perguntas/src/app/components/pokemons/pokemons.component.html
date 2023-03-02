@@ -1,13 +1,25 @@
-<div class="card__pokemons">
+<div class="card__pokemons" *ngIf="resl">
 
-    <app-card-pokemon 
-        name = {{pokemon.name}} 
-        front_default = {{pokemon.sprites.front_default}} 
-        [opcoesDeEscolha] = listSelecao
-        (eventEmitterRespostaEscolhida)="respostaEscolha($event)" >
-    </app-card-pokemon>
+    <mat-card>
+        <app-card-pokemon name={{pokemon.name}} front_default={{pokemon.sprites.front_default}}
+            (eventEmitterRespostaEscolhida)="respostaEscolha($event)" (eventeEmitterTeste)="exibirResultadoTemporario($event)">
+        </app-card-pokemon>
+
+        <mat-card-actions>
+            <app-buttons (click)="respostaEscolha(op.name)" *ngFor="let op of listSelecao"
+                opcao={{op.name}}></app-buttons>
+        </mat-card-actions>
+
+    </mat-card>
 
 
-    {{listSelecao | json}}
+</div>
+
+<div class="card__resposta" *ngIf="!resl">
+
+    <app-card-pokemon name={{resulPokemon.name}} front_default={{resulPokemon.sprites.front_default}}
+        [resul]="resulPokemon.resul" 
+        [__mostrarResult] = mostrarResult
+        ></app-card-pokemon>
 
 </div>
