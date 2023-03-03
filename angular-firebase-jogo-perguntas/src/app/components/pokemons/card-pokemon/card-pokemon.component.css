@@ -1,9 +1,44 @@
-img {
-    width: 200px;
+.card__conteiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+
+
+
+    margin: 10px 10px 10px 10px;
 }
 
-.card__conteiner{
-    border: 1px solid blue;
-    padding: 10px;
-    margin: 10px 10px 10px 10px;
+img {
+
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 500px;
+    max-height: 500px;
+
+    min-width: 200px;
+    min-height: 200px;
+
+    margin: 1%;
+    
+}
+
+.card__title {
+    text-align: center;
+}
+
+.card__content {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.matCard {
+    width: 100%;
+    height: 100%;
+    
 }

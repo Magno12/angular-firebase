@@ -1,13 +1,17 @@
 <div class="card__conteiner">
 
-  <mat-card>
-    <mat-card-title>{{name | uppercase}}</mat-card-title>
+  <mat-card class="matCard">
+    <mat-card-title class="card__title">{{name | uppercase}}</mat-card-title>
 
-    <img mat-card-image src={{front_default}} alt="Photo of a Shiba Inu">
-    
-    <img mat-card-image src="../../../../assets/img/certo.jpg" *ngIf="resul && __mostrarResult">
-    <img mat-card-image src="../../../../assets/img/errado.png" *ngIf="!resul && __mostrarResult">
-    
+    <mat-card-content class="card__content">
+      
+      <img mat-card-image src={{front_default}} alt="Photo pokemons">
+
+      <img mat-card-md-image src="../../../../assets/img/certo.png" *ngIf="resul && __mostrarResult">
+      <img mat-card-md-image src="../../../../assets/img/errado.png" *ngIf="!resul && __mostrarResult">
+
+    </mat-card-content>   
+
   </mat-card>
 
 

@@ -1,8 +1,49 @@
 .card__pokemons {
     display: flex;
+    width: 80%;
+    height: 70%;
+    display: flex;
     align-items: center;
-    border: 1px solid red;
+    justify-content: center;
 
+    
+    margin-left: 10%;
     margin-top: 20px;
 
 }
+
+.pokemonCard {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    
+}
+
+.pokemonCardActions {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    
+    justify-content: center;
+   
+}
+
+.actionsButton {
+
+    width: 45%;
+    margin: 1%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 20%; 
+    border: 1px solid greenyellow;
+    
+}
+
+
+
+
+
+
