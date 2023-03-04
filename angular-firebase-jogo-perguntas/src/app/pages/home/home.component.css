@@ -1,0 +1,28 @@
+.home__conteiner {
+    display: flex;
+    width: auto;
+    padding: 30px;
+
+    align-items: center;
+}
+
+.home__conteiner button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.rowToobar {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 70%;
+
+    background-color:rgb(175, 177, 175);
+}
+
+img {
+    min-width: 200px;
+    max-width: 300px;
+}
+

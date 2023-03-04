@@ -17,6 +17,7 @@ import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { CardPokemonComponent } from './components/pokemons/card-pokemon/card-pokemon.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
+import { HomeComponent } from './pages/home/home.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
     CardPokemonComponent,
     MenuComponent,
     ButtonsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

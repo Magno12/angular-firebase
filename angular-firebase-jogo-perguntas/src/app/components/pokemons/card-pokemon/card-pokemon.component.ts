@@ -27,22 +27,26 @@ export class CardPokemonComponent {
 
   @Output() eventeEmitterTeste = new EventEmitter<boolean>
 
+  motrarNome: boolean = true;
 
-  constructor()  {
-    
+
+  constructor() {
+
   }
-  
+
   respostaSelecionada(nomeEscolhido: string) {
 
-    console.log('respiodfdfdfdfkjlkj')
+    console.log('respiodfdfdfdfkjlkj');
     this.__mostrarResult = true;
+    this.motrarNome = false;
     this.eventEmitterRespostaEscolhida.emit(nomeEscolhido);
 
   }
 
-  teste() {
-    this.eventeEmitterTeste.emit(true)
-    console.log('teste() visualizar lista pokemons')
+  mostrarNome() {
+    this.motrarNome = !this.motrarNome;
   }
+
+
 
 }

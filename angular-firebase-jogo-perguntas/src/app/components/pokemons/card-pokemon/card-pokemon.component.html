@@ -1,16 +1,18 @@
 <div class="card__conteiner">
 
   <mat-card class="matCard">
-    <mat-card-title class="card__title">{{name | uppercase}}</mat-card-title>
+    <mat-card-title class="card__title"> <mat-icon class="icon" (click)="mostrarNome()" *ngIf="mostrarNome" >remove_red_eye</mat-icon> <span class="espaco"> </span> <span *ngIf="motrarNome || __mostrarResult" (click)="mostrarNome()" >{{name |
+        uppercase}}</span></mat-card-title>
 
+        
     <mat-card-content class="card__content">
-      
+
       <img mat-card-image src={{front_default}} alt="Photo pokemons">
 
       <img mat-card-md-image src="../../../../assets/img/certo.png" *ngIf="resul && __mostrarResult">
       <img mat-card-md-image src="../../../../assets/img/errado.png" *ngIf="!resul && __mostrarResult">
 
-    </mat-card-content>   
+    </mat-card-content>
 
   </mat-card>
 
