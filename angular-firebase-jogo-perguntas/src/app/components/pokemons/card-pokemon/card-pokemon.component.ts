@@ -27,7 +27,7 @@ export class CardPokemonComponent {
 
   @Output() eventeEmitterTeste = new EventEmitter<boolean>
 
-  motrarNome: boolean = true;
+  motrarNome: boolean = false;
 
 
   constructor() {
