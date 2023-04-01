@@ -14,7 +14,7 @@ export class ApiPokemonService {
 
 
   private urlBase = apiPokemon.key;
-  private pokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '' } }
+  //private pokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '' } }
 
 
   constructor(private httpClient: HttpClient) {

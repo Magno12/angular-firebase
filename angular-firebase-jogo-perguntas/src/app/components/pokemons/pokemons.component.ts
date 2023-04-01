@@ -9,9 +9,10 @@ import { ApiPokemonService } from './../../services/api-pokemon.service'
 })
 export class PokemonsComponent {
 
-  pokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '' } }
+  /*  sprites: { front_default: string, other: { dream_world: { front_default: string } } }, */
+  pokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '', other: { home: { front_default: '' } } } }
   listPokemon: any[] = [];
-  resulPokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '' } }
+  resulPokemon: Pokemon | any = { id: 0, name: '', resul: false, sprites: { front_default: '', other: { home: { front_default: '' } } } }
   //  listSelecao: string[] = ['squart', 'criptonita', 'pikachu'];
 
   listOpcoes = [
@@ -41,6 +42,18 @@ export class PokemonsComponent {
     },
     {
       name: 'croconaw'
+    },
+    {
+      name: 'vanillite'
+    },
+    {
+      name: 'dewott'
+    },
+    {
+      name: 'duskull'
+    },
+    {
+      name: 'tangrowth'
     }
   ]
 
@@ -80,6 +93,7 @@ export class PokemonsComponent {
           console.log('erro', err);
         },
         complete: () => {
+          console.log('this', this.pokemon)
           this.opcoesDinamica();
 
           this.inserindoNomeCoreto(this.pokemon.name);
@@ -175,7 +189,7 @@ export class PokemonsComponent {
       this.resl = !this.resl;
     }, 1000)
 
-   // console.log('teste bool', this.resl)
+    // console.log('teste bool', this.resl)
   }
 
 }
